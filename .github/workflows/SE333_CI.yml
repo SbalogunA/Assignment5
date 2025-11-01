@@ -20,15 +20,30 @@ jobs:
 
       - name: Install Linter
         ##TODO
+        run: echo "Using maven-checkstyle-plugin during 'validate' phase"
 
       - name: Run Checkstyle
         ##TODO
+        run: mvn -B -e -DskipTests=false validate
 
       - name: Upload Checkstyle Result
         ##TODO
+        uses: actions/upload-artifact@v4
+        with:
+            name: checkstyle-report
+            path: target/site/checkstyle.xml
+            if-no-files-found: warn
 
       - name: Run Maven Test
         ##TODO
+        run: mvn -B -e test
 
       - name: Jacoco Report
         ##TODO
+        uses: actions/upload-artifact@v4
+        with:
+            name: jacoco-report
+            path: |
+              target/site/jacoco/jacoco.xml
+              target/site/jacoco/index.html
+            if-no-files-found: warn
