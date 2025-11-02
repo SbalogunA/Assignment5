@@ -116,8 +116,6 @@ class BarnesAndNobleTest {
 
         // Assert
         assertEquals(0, summary.getTotalPrice());
-        // Depending on implementation, buyBook(…,0) may or may not be called;
-        // assert zero or one call safely by allowing either:
         verify(process, atMostOnce()).buyBook(any(Book.class), eq(0));
     }
 
