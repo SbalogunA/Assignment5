@@ -17,6 +17,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           architecture: x64
+          cache: maven
 
       - name: Install Linter
         ##TODO

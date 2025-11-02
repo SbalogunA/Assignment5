@@ -1,3 +1,4 @@
+![SE333 CI](https://github.com/SbalogunA/Assignment5/actions/workflows/SE333_CI.yml/badge.svg)
 # Assignment 5 – Unit, Mocking and Integration Testing
 
 
