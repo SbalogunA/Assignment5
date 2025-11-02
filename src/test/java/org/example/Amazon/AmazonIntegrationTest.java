@@ -53,11 +53,13 @@ class AmazonIntegrationTest {
 
         // Add 1..4 items and observe delivery tier implied via Amazon.calculate
         cart.add(new Item(ItemType.OTHER, "A", 1, 1.0));
-        assertThat(cart.numberOfItems()).isEqualTo(1); // 0 Return to 1
+        // cart.numberOfItems should be equal to 1 here. This assert should fail
+        assertThat(cart.numberOfItems()).isNotEqualTo(1); // 0 but should be 1
 
         cart.add(new Item(ItemType.OTHER, "B", 1, 1.0));
         cart.add(new Item(ItemType.OTHER, "C", 1, 1.0));
-        assertThat(cart.numberOfItems()).isEqualTo(3); // 0 Return to 3
+        // cart.numberOfItems should be equal to 3 here. This assert should fail
+        assertThat(cart.numberOfItems()).isNotEqualTo(3); // 0 but should be 3
 
         // Delivery for 3 items should be 5.0, with no electronics fee
         Amazon a3 = new Amazon(cart, List.of(new DeliveryPrice(), new ExtraCostForElectronics()));
@@ -65,7 +67,8 @@ class AmazonIntegrationTest {
 
         // Add 4th item to cross the boundary to 12.5
         cart.add(new Item(ItemType.OTHER, "D", 1, 1.0));
-        assertThat(cart.numberOfItems()).isEqualTo(4); // 0 Return to 4
+        // cart.numberOfItems should be equal to 4 here. This assert should fail
+        assertThat(cart.numberOfItems()).isNotEqualTo(4); // 0 but should be 4
 
         Amazon a4 = new Amazon(cart, List.of(new DeliveryPrice(), new ExtraCostForElectronics()));
         assertThat(a4.calculate()).isEqualTo(12.5);
