@@ -23,4 +23,4 @@ Part 3 – Advanced Testing (Amazon Package):
 Implement both integration tests and unit tests for the Amazon package, covering interactions between multiple components as well as isolated class-level behavior. Tests should use mocks where appropriate and ensure full branch and functional coverage.
 
 
-The repository demonstrates best practices in test automation, CI configuration, and code quality enforcement. All responses and reflections are documented directly within this README.md file rather than a separate PDF submission
+The repository demonstrates best practices in test automation, CI configuration, and code quality enforcement.
